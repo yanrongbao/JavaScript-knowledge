@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo { padding: 10px; }
+        .container { max-width: 500px; min-height: 120px; padding: 10px; position: relative; z-index: 1; }
+        .list { display: inline-block; padding: 1px 5px; background-color: #f0f3f9; color: #666; cursor: pointer; }
+        .list:after { content: '×'; margin-left: 5px; font-family: 'microsoft yahei'; }
+        .input { width: 80px; border: 0; background: none; padding: 5px; margin-left: 5px; outline: 0; }
+        .border { position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: -1; border: 1px solid #bbb; box-shadow: inset 0 1px 1px rgba(0,0,0,.1); }
+        .input:focus + .border { /* 模拟父选择器效果精髓所在 */ border-color: #1271E0; }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <p>《青云志》主演名单：</p>
+        <div class="container">
+            <span class="list">李易峰</span>
+            <span class="list">赵丽颖</span>
+            <span class="list">杨紫</span><input id="input" class="input">
+            <label class="border" for="input"></label>
+        </div>
+    </div>
+</body>
+</html>

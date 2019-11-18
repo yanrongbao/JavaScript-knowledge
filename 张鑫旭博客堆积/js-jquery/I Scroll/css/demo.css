@@ -1,0 +1,43 @@
+.demo {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.wrap {
+    width: 300px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrap>ul {
+    position: absolute;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.wrap li {
+    display: inline-block;
+}
+
+.disc,
+.demo ul {
+    padding-left: 0px;
+    list-style-type: disc;
+}
+
+.wrap li::before{
+    content: attr(data-index);
+    position: absolute;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .5);
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 男神的各项参数
+    var yrb = {
+        "身高":175,
+        "体重":68,
+        "年薪":"80K",
+        request: function (obj) {
+            if(Math.random() > 0.3) {
+                obj.success();
+            }else{
+                obj.fail();
+            }
+        }
+    };
+
+    var Request = function (names, success) {  
+        var index = 0, first = 0;
+        var request = function () {
+            if(names[index]) {
+                yrb.request({
+                    name:names[index],
+                    success:function(){
+                        first = 0;
+                        console.log("成功拿下" + names[index]);
+                        index++;
+                        request();
+                    },
+                    fail: function () {
+                        if(first == 1) {
+                            console.log("依旧没拿下" + names[index] + ",求婚失败");
+                            return;
+                        }else{
+                            console.log("没能拿下" + names[index]+ "，再试一次");
+                        }
+                        first = 1;
+                        request();
+                    }
+                })
+            }else{
+                success();
+            }
+        };
+
+        request();
+    }
+    Request(["岳父", "大伯", "大姑"], function () {
+        yrb.request({
+            name:'何慧芳',
+            success:function(){
+                console.log(this.name + "同意，求婚成功！");
+            },
+            fail: function () {  
+                console.log(this.name + "不同意，求婚失败！");
+            }
+        })
+    })
+</script>
+</html>

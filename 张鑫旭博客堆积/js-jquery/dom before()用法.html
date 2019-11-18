@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="button1">点击添加文字</button><br>
+    <button type="button" id="button2">点击添加dom</button><br>
+    <img src="../images/mm1.jpg" alt="" id="mm1">
+    <hr>
+    <button type="button" id="button3">insertAdjacentHTML</button><br>
+    <hr>
+    <!-- <h4>美女</h4> -->
+    <img src="../images/mm1.jpg">
+    <p>图片前面有段HTML注释，点击下面按钮看看能不能显示出来。</p>
+    <p>
+        <button id="btn">点击我</button>
+    </p>
+</body>
+<script>
+    var mm1 = document.getElementById('mm1');
+    var oButton1 = document.getElementById('button1')
+    var oButton2 = document.getElementById('button2')
+    oButton1.addEventListener('click', function () {  
+        mm1.before('美女: ')
+    })
+    oButton2.addEventListener('click', function () {  
+        var h4 = document.createElement('h4');
+        h4.innerHTML = '美女: '
+        mm1.before(h4)
+    })
+
+    var oButton3 = document.getElementById('button3')
+    oButton3.addEventListener('click', function () {  
+        mm1.insertAdjacentHTML('beforeBegin', '<strong>美女：</strong>');
+    })
+
+    var eleBtn = document.getElementById('btn');
+    eleBtn.addEventListener('click', function () {
+        var treeWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_COMMENT);   
+        while (treeWalker.nextNode()) {
+            var commentNode = treeWalker.currentNode;
+            // 替换注释节点为文本节点
+            commentNode.replaceWith(commentNode.data);
+            console.log(treeWalker.currentNode); 
+        }
+    });
+</script>
+</html>

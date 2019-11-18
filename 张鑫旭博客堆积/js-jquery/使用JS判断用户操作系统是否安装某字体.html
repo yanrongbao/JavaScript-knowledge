@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var isSupportFontFamily = function (f) { 
+        if (typeof f != "string") { return false } 
+        var h = "Arial"; 
+        if (f.toLowerCase() == h.toLowerCase()) { 
+            return true 
+        } 
+        var e = "a"; var d = 100; var a = 100, i = 100; 
+        var c = document.createElement("canvas"); 
+        var b = c.getContext("2d"); c.width = a; c.height = i; b.textAlign = "center"; b.fillStyle = "black"; b.textBaseline = "middle"; 
+        var g = function (j) { 
+            b.clearRect(0, 0, a, i); 
+            b.font = d + "px " + j + ", " + h; b.fillText(e, a / 2, i / 2); 
+            var k = b.getImageData(0, 0, a, i).data; 
+            return [].slice.call(k).filter(function (l) { 
+                return l != 0 }) 
+            }; 
+            return g(h).join("") !== g(f).join("") 
+        };
+</script>
+</html>

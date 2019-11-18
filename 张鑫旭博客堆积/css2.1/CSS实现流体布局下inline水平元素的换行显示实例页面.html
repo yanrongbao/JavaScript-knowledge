@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        dd,dt{
+            display: inline;
+            margin: 0;
+        }
+        dd::after{
+            content:'\D\A';
+            white-space: pre;
+        }
+        dt:first-child:before { content: normal; }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>提问：</dt>
+        <dd>为什么没有男朋友？</dd>
+        <dt>回答：</dt>
+        <dd>男朋友是什么、可以吃吗？
+            <img src="http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/a0/kbsa_org.gif">
+            <img src="http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/a0/kbsa_org.gif">
+        </dd>
+    </dl>
+</body>
+</html>

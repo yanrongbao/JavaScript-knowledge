@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn-run">运行</button>
+</body>
+<script>
+    [].slice.call(document.querySelectorAll('.btn-run')).forEach(function (btn) { 
+        btn.onclick = function () { 
+            var iframe = document.createElement('iframe'); 
+            iframe.setAttribute('style', 'width:600px;max-width:98%;max-height:600px;height:98vh;position:fixed;border:1px solid;outline:9999px solid rgba(0,0,0,.6);top:0;right:0;left:0;bottom:0;margin:auto;overflow:hidden;'); 
+            iframe.src = URL.createObjectURL(new Blob([document.getElementById('codeArea').value], { "type": "text/html" })); 
+            document.body.appendChild(iframe); document.codeIframe = iframe; }; }); 
+            document.body.addEventListener('mouseup', function () { 
+                if (document.codeIframe) { 
+                    document.body.removeChild(document.codeIframe); document.codeIframe = null; 
+                } 
+            });
+</script>
+</html>
