@@ -55,7 +55,7 @@ Object.create = Object.create || function (obj) {
     return new F()
 }
 
-function Person(name) {
+function Person (name) {
     this.name = name;
 }
 Person.prototype.getName = function () {
@@ -79,7 +79,7 @@ class Animal {
     constructor(name) {
         this.name = name;
     }
-    getName() {
+    getName () {
         return this.name;
     }
 }
@@ -88,7 +88,7 @@ class Dogs extends Animal {
     constructor(name) {
         super(name);
     }
-    speak() {
+    speak () {
         return 'woof'
     }
 }
