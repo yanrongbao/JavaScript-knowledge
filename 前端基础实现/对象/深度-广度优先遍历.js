@@ -43,18 +43,18 @@ let deepTraversal3 = (node) => {
 
 // 广度优先遍历 BFS
 let widthTraversal2 = (node) => {
-    let nodes = [];
-    let stack = [];
-    if (node) {
-        stack.push(node);
-        while (stack.length) {
-            let item = stack.shift();
-            let children = item.children;
-            nodes.push(item);
-            for (let i = 0; i < children.length; i++) {
-                stack.push(children[i])
-            }
-        }
-    }
-    return nodes;
+   let nodes = [];
+   let stacks = [];
+   if(node) {
+      stacks.push(node);
+      while(stacks.length) {
+          const item = stacks.shift();
+          const children = item.children || [];
+          nodes.push(item);
+          for(let i in children) {
+            stacks.push(children[i]);
+          }
+      }
+   }
+   return nodes;
 }
