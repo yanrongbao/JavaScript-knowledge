@@ -74,7 +74,7 @@ function bubble(arr) {
   const { length } = _arr;
   for(let i = 0; i < length; i++) {
     for(let j = 0; j < length; j++) {
-      if(arr[j] > _arr[j+1]) {
+      if(_arr[j] > _arr[j+1]) {
         const element = arr[j];
         _arr[j] = _arr[j+1];
         _arr[j+1] = element;
