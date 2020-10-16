@@ -68,7 +68,7 @@ function _includes(arr, param, start = 0) {
 }
 
 //冒泡排序
-function bubble(arr) {
+function bubbleSort(arr) {
   if(Object.prototype.toString.call(arr) === '[object Array]') throw new Error('参数必须是array类型');
   const _arr = arr;
   const { length } = _arr;
